@@ -1,0 +1,50 @@
+class Invoice {
+    private Product product;
+    private int quantity;
+
+    public Invoice(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    public int calculateTotal() {
+        return product.getPrice() * this.quantity;
+    }
+}
+
+class InvoiceDao {
+    private Invoice invoice;
+
+    public InvoiceDao(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public void saveToDb() {
+
+    }
+}
+
+class InvoicePrinter {
+    private Invoice invoice;
+
+    public InvoicePrinter(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public void printInvoice() {
+
+                System.out.println("Invoice Details:");
+                System.out.println("Product: " + invoice.getProduct().getName());
+                System.out.println("Quantity: " + invoice.getQuantity());
+                System.out.println("Total Amount: $" + invoice.calculateTotal());
+            }
+        }
+    }
+}
+
+//In this refactored example, we have split the responsibilities of
+the Invoice class into three separate classes: Invoice, InvoiceDao, and InvoicePrinter.
+
+//The Invoice class is responsible only for calculating the total
+amount, and the printing and saving responsibilities have been delegated to
+ separate classes. This makes the code more modular, easier to understand, and less prone to errors.

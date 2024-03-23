@@ -1,0 +1,30 @@
+//Liskov Substitution Principle
+
+
+interface Bike {
+    void turnOnEngine();
+
+    void accelerate();
+}
+
+//In the given example, the interface Bike has two methods, turnOnEngine() and accelerate(). Two classes implement this interface, Motorbike and Bicycle.
+
+
+class Motorbike implements Bike {
+
+    boolean isEngineOn;
+    int speed;
+
+    @Override
+    public void turnOnEngine() {
+        isEngineOn = true;
+    }
+
+    @Override
+    public void accelerate() {
+        speed += 5;
+    }
+}
+
+//  Motorbike correctly implements the turnOnEngine() method,
+ as it sets the isEngineOn boolean to true. It also correctly implements the accelerate() method by increasing the speed by 5.

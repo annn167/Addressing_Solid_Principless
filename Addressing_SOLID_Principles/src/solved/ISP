@@ -1,0 +1,58 @@
+// INTERFACE SEGREGATION PRINCIPLE
+interface Drivable {
+    void startEngine();
+    void stopEngine();
+    void drive();
+}
+
+interface Flyable {
+    void fly();
+}
+//Now, you can have a class called Car that only implements the Drivable interface:
+
+class Car implements Drivable {
+
+    @Override
+    public void startEngine() {
+         System.out.println("Starting car engine...");
+    }
+
+    @Override
+    public void stopEngine() {
+        System.out.println("Stopping car engine...");
+    }
+
+    @Override
+    public void drive() {
+      System.out.println("Driving the car on the road.");
+    }
+}
+
+//And with interface segregation, you can have another class called Airplane that implements both the
+Drivable and Flyable interfaces:
+class Airplane implements Drivable, Flyable {
+
+    @Override
+    public void startEngine() {
+        System.out.println("Starting airplane engine.");
+ }
+
+
+    @Override
+    public void stopEngine() {
+        System.out.println("Stopping airplane engine.");
+    }
+
+    @Override
+    public void drive() {
+         System.out.println("Taxiing on the runway.");
+    }
+
+
+    @Override
+    public void fly() {
+        System.out.println("Taking off and flying through the air");
+    }
+}
+//In this example, you have properly segregated the Vehicle interface into smaller interfaces based on related functionality. This adheres to the ISP and makes your code more flexible and maintainable.
+

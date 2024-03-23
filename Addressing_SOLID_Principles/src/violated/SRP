@@ -1,0 +1,43 @@
+SINGLE RESPONSIBILITY PRINCIPLES.
+
+class Product {
+    String name;
+    String category;
+    int price;
+
+    public Product(String name, String color, int price) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+    }
+}
+
+The above code defines a simple Product class having three instance variables – name, category and price.
+class Invoice {
+    private Product product;
+    private int quantity;
+
+    public Invoice(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    public int calculateTotal()  {
+        return product.price * this.quantity;
+    }
+
+    public void printInvoice() {
+
+System.out.println("Printing invoice: " + invoice.toString());
+
+
+    }
+
+    public void saveToDb() {
+
+    }
+}
+
+//The above Invoice class violates the SRP because it has multiple
+responsibilities – it is responsible for calculating the total amount, printing the invoice, and saving the invoice to the database. As a result, if the calculation logic changes, such as the addition
+of taxes, the calculateTotal() method would require modification

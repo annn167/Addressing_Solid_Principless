@@ -1,0 +1,18 @@
+class Bicycle implements Bike {
+
+    boolean isEngineOn;
+    int speed;
+
+    @Override
+    public void turnOnEngine() {
+        throw new AssertionError("There is no engine!");
+    }
+
+    @Override
+    public void accelerate() {
+        speed += 5;
+    }
+}
+
+However, the Bicycle class throws an AssertionError in the turnOnEngine() method because it has no engine. This means that an instance of Bicycle cannot be substituted for an instance of Bike without breaking the behavior of the program.
+In other words, if the Bicycle class is considered a subtype of the Bike interface, then according to the LSP, any instance of Bike should be replaceable with an instance of Bicycle without altering the correctness of the program.
